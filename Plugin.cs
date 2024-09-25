@@ -11,10 +11,18 @@ namespace TradersSellBundles
 
         private void Awake()
         {
-            LogSource = Logger;
-            new GetBarterSchemePatch().Enable();
-            new ItemTransparencyPatch().Enable();
-            LogSource.LogInfo("TradersSellBundles: Loaded");
+            try
+            {
+                LogSource = Logger;
+                new GetBarterSchemePatch().Enable();
+                new ItemTransparencyPatch().Enable();
+                new InteriorItemPatch().Enable();
+                LogSource.LogInfo("TradersSellBundles: Loaded");
+            }
+            catch (System.Exception e)
+            {
+                LogSource.LogError("TradersSellBundles Error: " + e);
+            }
         }
     }
 }

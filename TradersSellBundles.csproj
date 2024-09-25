@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Patches\GetBarterSchemePatch.cs" />
+    <Compile Include="Patches\InteriorItemPatch.cs" />
     <Compile Include="Patches\ItemTransparencyPatch.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

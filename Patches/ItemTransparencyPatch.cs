@@ -25,10 +25,17 @@ namespace TradersSellBundles.Patches
         [PatchPostfix]
         static void Postfix(CanvasGroup ___CanvasGroup, EOwnerType ___eownerType_0)
         {
-            if (___eownerType_0 != EOwnerType.Trader) return; // Only change the behavior for trader inventories, just in case this method is used elsewhere
+            try
+            {
+                if (___eownerType_0 != EOwnerType.Trader) return; // Only change the behavior for trader inventories, just in case this method is used elsewhere
 
-            ___CanvasGroup.SetUnlockStatus(true, false); // Undo transparency
-            return;
+                ___CanvasGroup.SetUnlockStatus(true, false); // Undo transparency
+                return;
+            }
+            catch (System.Exception e)
+            {
+                Plugin.LogSource.LogError("TradersSellBundles Error: " + e);
+            }
         }
 
     }
